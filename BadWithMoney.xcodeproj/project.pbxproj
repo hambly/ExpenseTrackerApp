@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D1FE04117B1BE6F00A8645C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1FE04017B1BE6F00A8645C /* CoreData.framework */; };
+		4D31AE0A17B31AA7000B5C8F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE0917B31AA7000B5C8F /* MainViewController.m */; };
+		4D31AE0C17B34553000B5C8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D31AE0B17B34553000B5C8F /* QuartzCore.framework */; };
+		4D31AE0F17B34D7E000B5C8F /* ExpenseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE0E17B34D7E000B5C8F /* ExpenseViewController.m */; };
+		4D31AE1217B35E10000B5C8F /* AllExpensesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE1117B35E10000B5C8F /* AllExpensesViewController.m */; };
+		4D31AE1617B36C65000B5C8F /* MHLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE1517B36C65000B5C8F /* MHLabel.m */; };
+		4D31AE2A17B49415000B5C8F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D31AE2917B49415000B5C8F /* Icon.png */; };
+		4D31AE2C17B4941A000B5C8F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D31AE2B17B4941A000B5C8F /* Icon@2x.png */; };
+		4D31AE2E17B49429000B5C8F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D31AE2D17B49429000B5C8F /* Icon-72.png */; };
+		4D31AE3017B49433000B5C8F /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D31AE2F17B49433000B5C8F /* Icon-72@2x.png */; };
+		4D31AE3617B497F1000B5C8F /* Calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE3517B497F1000B5C8F /* Calculate.m */; };
+		4D31AE3917B4AE78000B5C8F /* ExpenseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE3817B4AE78000B5C8F /* ExpenseTableViewCell.m */; };
+		4D54E1F617B8610F004A17D8 /* CategoryEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D54E1F517B8610F004A17D8 /* CategoryEditViewController.m */; };
+		4D6A51E117AB2E5A00AF9CC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6A51E017AB2E5A00AF9CC5 /* UIKit.framework */; };
+		4D6A51E317AB2E5A00AF9CC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6A51E217AB2E5A00AF9CC5 /* Foundation.framework */; };
+		4D6A51E517AB2E5A00AF9CC5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6A51E417AB2E5A00AF9CC5 /* CoreGraphics.framework */; };
+		4D6A51EB17AB2E5A00AF9CC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D6A51E917AB2E5A00AF9CC5 /* InfoPlist.strings */; };
+		4D6A51ED17AB2E5A00AF9CC5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A51EC17AB2E5A00AF9CC5 /* main.m */; };
+		4D6A51F117AB2E5A00AF9CC5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6A51F017AB2E5A00AF9CC5 /* AppDelegate.m */; };
+		4D6A51F317AB2E5A00AF9CC5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6A51F217AB2E5A00AF9CC5 /* Default.png */; };
+		4D6A51F517AB2E5A00AF9CC5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6A51F417AB2E5A00AF9CC5 /* Default@2x.png */; };
+		4D6A51F717AB2E5A00AF9CC5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6A51F617AB2E5A00AF9CC5 /* Default-568h@2x.png */; };
+		4D6A51FA17AB2E5A00AF9CC5 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6A51F817AB2E5A00AF9CC5 /* MainStoryboard.storyboard */; };
+		4DCC82FD17B078CB001FB921 /* ExpenseDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC82FB17B078CB001FB921 /* ExpenseDataModel.xcdatamodeld */; };
+		4DCC830617B07C42001FB921 /* ExpenseStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC830517B07C42001FB921 /* ExpenseStore.m */; };
+		4DCC830917B09E69001FB921 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC830817B09E69001FB921 /* Category.m */; };
+		4DCC830C17B09E73001FB921 /* Expense.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC830B17B09E73001FB921 /* Expense.m */; };
+		4DCC830F17B0A7D9001FB921 /* FakeExpense.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DCC830E17B0A7D9001FB921 /* FakeExpense.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4D1FE04017B1BE6F00A8645C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		4D31AE0817B31AA7000B5C8F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		4D31AE0917B31AA7000B5C8F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		4D31AE0B17B34553000B5C8F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4D31AE0D17B34D7E000B5C8F /* ExpenseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseViewController.h; sourceTree = "<group>"; };
+		4D31AE0E17B34D7E000B5C8F /* ExpenseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseViewController.m; sourceTree = "<group>"; };
+		4D31AE1017B35E10000B5C8F /* AllExpensesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllExpensesViewController.h; sourceTree = "<group>"; };
+		4D31AE1117B35E10000B5C8F /* AllExpensesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllExpensesViewController.m; sourceTree = "<group>"; };
+		4D31AE1417B36C65000B5C8F /* MHLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHLabel.h; sourceTree = "<group>"; };
+		4D31AE1517B36C65000B5C8F /* MHLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHLabel.m; sourceTree = "<group>"; };
+		4D31AE2917B49415000B5C8F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		4D31AE2B17B4941A000B5C8F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
+		4D31AE2D17B49429000B5C8F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72.png"; path = "../Icon-72.png"; sourceTree = "<group>"; };
+		4D31AE2F17B49433000B5C8F /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-72@2x.png"; path = "../Icon-72@2x.png"; sourceTree = "<group>"; };
+		4D31AE3417B497F1000B5C8F /* Calculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculate.h; sourceTree = "<group>"; };
+		4D31AE3517B497F1000B5C8F /* Calculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculate.m; sourceTree = "<group>"; };
+		4D31AE3717B4AE77000B5C8F /* ExpenseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseTableViewCell.h; sourceTree = "<group>"; };
+		4D31AE3817B4AE78000B5C8F /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseTableViewCell.m; sourceTree = "<group>"; };
+		4D54E1F417B8610F004A17D8 /* CategoryEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryEditViewController.h; sourceTree = "<group>"; };
+		4D54E1F517B8610F004A17D8 /* CategoryEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryEditViewController.m; sourceTree = "<group>"; };
+		4D6A51DD17AB2E5A00AF9CC5 /* Spreadsheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spreadsheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6A51E017AB2E5A00AF9CC5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4D6A51E217AB2E5A00AF9CC5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4D6A51E417AB2E5A00AF9CC5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4D6A51E817AB2E5A00AF9CC5 /* BadWithMoney-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BadWithMoney-Info.plist"; sourceTree = "<group>"; };
+		4D6A51EA17AB2E5A00AF9CC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4D6A51EC17AB2E5A00AF9CC5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4D6A51EE17AB2E5A00AF9CC5 /* BadWithMoney-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BadWithMoney-Prefix.pch"; sourceTree = "<group>"; };
+		4D6A51EF17AB2E5A00AF9CC5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4D6A51F017AB2E5A00AF9CC5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4D6A51F217AB2E5A00AF9CC5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		4D6A51F417AB2E5A00AF9CC5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		4D6A51F617AB2E5A00AF9CC5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4D6A51F917AB2E5A00AF9CC5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4DCC82FC17B078CB001FB921 /* ExpenseDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExpenseDataModel.xcdatamodel; sourceTree = "<group>"; };
+		4DCC830417B07C42001FB921 /* ExpenseStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseStore.h; sourceTree = "<group>"; };
+		4DCC830517B07C42001FB921 /* ExpenseStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseStore.m; sourceTree = "<group>"; };
+		4DCC830717B09E69001FB921 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		4DCC830817B09E69001FB921 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		4DCC830A17B09E73001FB921 /* Expense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expense.h; sourceTree = "<group>"; };
+		4DCC830B17B09E73001FB921 /* Expense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
+		4DCC830D17B0A7D9001FB921 /* FakeExpense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FakeExpense.h; sourceTree = "<group>"; };
+		4DCC830E17B0A7D9001FB921 /* FakeExpense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FakeExpense.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D6A51DA17AB2E5A00AF9CC5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D31AE0C17B34553000B5C8F /* QuartzCore.framework in Frameworks */,
+				4D1FE04117B1BE6F00A8645C /* CoreData.framework in Frameworks */,
+				4D6A51E117AB2E5A00AF9CC5 /* UIKit.framework in Frameworks */,
+				4D6A51E317AB2E5A00AF9CC5 /* Foundation.framework in Frameworks */,
+				4D6A51E517AB2E5A00AF9CC5 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4D31AE1317B35E19000B5C8F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DCC830A17B09E73001FB921 /* Expense.h */,
+				4DCC830B17B09E73001FB921 /* Expense.m */,
+				4DCC830717B09E69001FB921 /* Category.h */,
+				4DCC830817B09E69001FB921 /* Category.m */,
+				4DCC830417B07C42001FB921 /* ExpenseStore.h */,
+				4DCC830517B07C42001FB921 /* ExpenseStore.m */,
+				4DCC82FB17B078CB001FB921 /* ExpenseDataModel.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4D31AE3A17B4B76A000B5C8F /* HelperClasses */ = {
+			isa = PBXGroup;
+			children = (
+				4D31AE3417B497F1000B5C8F /* Calculate.h */,
+				4D31AE3517B497F1000B5C8F /* Calculate.m */,
+				4D31AE1417B36C65000B5C8F /* MHLabel.h */,
+				4D31AE1517B36C65000B5C8F /* MHLabel.m */,
+				4DCC830D17B0A7D9001FB921 /* FakeExpense.h */,
+				4DCC830E17B0A7D9001FB921 /* FakeExpense.m */,
+			);
+			name = HelperClasses;
+			sourceTree = "<group>";
+		};
+		4D6A51D417AB2E5A00AF9CC5 = {
+			isa = PBXGroup;
+			children = (
+				4D6A51E617AB2E5A00AF9CC5 /* BadWithMoney */,
+				4D6A51DF17AB2E5A00AF9CC5 /* Frameworks */,
+				4D6A51DE17AB2E5A00AF9CC5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4D6A51DE17AB2E5A00AF9CC5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D6A51DD17AB2E5A00AF9CC5 /* Spreadsheet.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4D6A51DF17AB2E5A00AF9CC5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D31AE0B17B34553000B5C8F /* QuartzCore.framework */,
+				4D1FE04017B1BE6F00A8645C /* CoreData.framework */,
+				4D6A51E017AB2E5A00AF9CC5 /* UIKit.framework */,
+				4D6A51E217AB2E5A00AF9CC5 /* Foundation.framework */,
+				4D6A51E417AB2E5A00AF9CC5 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D6A51E617AB2E5A00AF9CC5 /* BadWithMoney */ = {
+			isa = PBXGroup;
+			children = (
+				4D6A51F817AB2E5A00AF9CC5 /* MainStoryboard.storyboard */,
+				4D31AE0817B31AA7000B5C8F /* MainViewController.h */,
+				4D31AE0917B31AA7000B5C8F /* MainViewController.m */,
+				4D31AE0D17B34D7E000B5C8F /* ExpenseViewController.h */,
+				4D31AE0E17B34D7E000B5C8F /* ExpenseViewController.m */,
+				4D31AE1017B35E10000B5C8F /* AllExpensesViewController.h */,
+				4D31AE1117B35E10000B5C8F /* AllExpensesViewController.m */,
+				4D31AE3717B4AE77000B5C8F /* ExpenseTableViewCell.h */,
+				4D31AE3817B4AE78000B5C8F /* ExpenseTableViewCell.m */,
+				4D54E1F417B8610F004A17D8 /* CategoryEditViewController.h */,
+				4D54E1F517B8610F004A17D8 /* CategoryEditViewController.m */,
+				4D31AE3A17B4B76A000B5C8F /* HelperClasses */,
+				4D31AE1317B35E19000B5C8F /* Model */,
+				4D6A51E717AB2E5A00AF9CC5 /* Supporting Files */,
+			);
+			path = BadWithMoney;
+			sourceTree = "<group>";
+		};
+		4D6A51E717AB2E5A00AF9CC5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D6A51EF17AB2E5A00AF9CC5 /* AppDelegate.h */,
+				4D6A51F017AB2E5A00AF9CC5 /* AppDelegate.m */,
+				4D31AE2F17B49433000B5C8F /* Icon-72@2x.png */,
+				4D31AE2D17B49429000B5C8F /* Icon-72.png */,
+				4D31AE2B17B4941A000B5C8F /* Icon@2x.png */,
+				4D31AE2917B49415000B5C8F /* Icon.png */,
+				4D6A51E817AB2E5A00AF9CC5 /* BadWithMoney-Info.plist */,
+				4D6A51E917AB2E5A00AF9CC5 /* InfoPlist.strings */,
+				4D6A51EC17AB2E5A00AF9CC5 /* main.m */,
+				4D6A51EE17AB2E5A00AF9CC5 /* BadWithMoney-Prefix.pch */,
+				4D6A51F217AB2E5A00AF9CC5 /* Default.png */,
+				4D6A51F417AB2E5A00AF9CC5 /* Default@2x.png */,
+				4D6A51F617AB2E5A00AF9CC5 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D6A51DC17AB2E5A00AF9CC5 /* BadWithMoney */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D6A520017AB2E5A00AF9CC5 /* Build configuration list for PBXNativeTarget "BadWithMoney" */;
+			buildPhases = (
+				4D6A51D917AB2E5A00AF9CC5 /* Sources */,
+				4D6A51DA17AB2E5A00AF9CC5 /* Frameworks */,
+				4D6A51DB17AB2E5A00AF9CC5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BadWithMoney;
+			productName = BadWithMoney;
+			productReference = 4D6A51DD17AB2E5A00AF9CC5 /* Spreadsheet.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4D6A51D517AB2E5A00AF9CC5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Mark Hambly";
+			};
+			buildConfigurationList = 4D6A51D817AB2E5A00AF9CC5 /* Build configuration list for PBXProject "BadWithMoney" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4D6A51D417AB2E5A00AF9CC5;
+			productRefGroup = 4D6A51DE17AB2E5A00AF9CC5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D6A51DC17AB2E5A00AF9CC5 /* BadWithMoney */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4D6A51DB17AB2E5A00AF9CC5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D6A51EB17AB2E5A00AF9CC5 /* InfoPlist.strings in Resources */,
+				4D6A51F317AB2E5A00AF9CC5 /* Default.png in Resources */,
+				4D6A51F517AB2E5A00AF9CC5 /* Default@2x.png in Resources */,
+				4D6A51F717AB2E5A00AF9CC5 /* Default-568h@2x.png in Resources */,
+				4D6A51FA17AB2E5A00AF9CC5 /* MainStoryboard.storyboard in Resources */,
+				4D31AE2A17B49415000B5C8F /* Icon.png in Resources */,
+				4D31AE2C17B4941A000B5C8F /* Icon@2x.png in Resources */,
+				4D31AE2E17B49429000B5C8F /* Icon-72.png in Resources */,
+				4D31AE3017B49433000B5C8F /* Icon-72@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D6A51D917AB2E5A00AF9CC5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D6A51ED17AB2E5A00AF9CC5 /* main.m in Sources */,
+				4D6A51F117AB2E5A00AF9CC5 /* AppDelegate.m in Sources */,
+				4DCC82FD17B078CB001FB921 /* ExpenseDataModel.xcdatamodeld in Sources */,
+				4DCC830617B07C42001FB921 /* ExpenseStore.m in Sources */,
+				4DCC830917B09E69001FB921 /* Category.m in Sources */,
+				4DCC830C17B09E73001FB921 /* Expense.m in Sources */,
+				4DCC830F17B0A7D9001FB921 /* FakeExpense.m in Sources */,
+				4D31AE0A17B31AA7000B5C8F /* MainViewController.m in Sources */,
+				4D31AE0F17B34D7E000B5C8F /* ExpenseViewController.m in Sources */,
+				4D31AE1217B35E10000B5C8F /* AllExpensesViewController.m in Sources */,
+				4D31AE1617B36C65000B5C8F /* MHLabel.m in Sources */,
+				4D31AE3617B497F1000B5C8F /* Calculate.m in Sources */,
+				4D31AE3917B4AE78000B5C8F /* ExpenseTableViewCell.m in Sources */,
+				4D54E1F617B8610F004A17D8 /* CategoryEditViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4D6A51E917AB2E5A00AF9CC5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D6A51EA17AB2E5A00AF9CC5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4D6A51F817AB2E5A00AF9CC5 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D6A51F917AB2E5A00AF9CC5 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4D6A51FE17AB2E5A00AF9CC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4D6A51FF17AB2E5A00AF9CC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4D6A520117AB2E5A00AF9CC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BadWithMoney/BadWithMoney-Prefix.pch";
+				INFOPLIST_FILE = "BadWithMoney/BadWithMoney-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = Spreadsheet;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4D6A520217AB2E5A00AF9CC5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BadWithMoney/BadWithMoney-Prefix.pch";
+				INFOPLIST_FILE = "BadWithMoney/BadWithMoney-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = Spreadsheet;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D6A51D817AB2E5A00AF9CC5 /* Build configuration list for PBXProject "BadWithMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D6A51FE17AB2E5A00AF9CC5 /* Debug */,
+				4D6A51FF17AB2E5A00AF9CC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4D6A520017AB2E5A00AF9CC5 /* Build configuration list for PBXNativeTarget "BadWithMoney" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D6A520117AB2E5A00AF9CC5 /* Debug */,
+				4D6A520217AB2E5A00AF9CC5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4DCC82FB17B078CB001FB921 /* ExpenseDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4DCC82FC17B078CB001FB921 /* ExpenseDataModel.xcdatamodel */,
+			);
+			currentVersion = 4DCC82FC17B078CB001FB921 /* ExpenseDataModel.xcdatamodel */;
+			path = ExpenseDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4D6A51D517AB2E5A00AF9CC5 /* Project object */;
+}
