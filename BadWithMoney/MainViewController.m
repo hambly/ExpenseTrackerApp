@@ -7,7 +7,6 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-
 #import "MainViewController.h"
 #import "ExpenseStore.h"
 #import "Expense.h"
@@ -15,7 +14,6 @@
 #import "FakeExpense.h"
 #import "ExpenseViewController.h"
 #import "MHLabel.h"
-
 
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -35,21 +33,52 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         
-//		[self.navigationController setNavigationBarHidden:YES];
+		[self.navigationController setNavigationBarHidden:YES];
 		
 		if ([[[ExpenseStore sharedStore] allExpenses] count] == 0){
 			[FakeExpense generateRandomExpenses:10];
-			
-		}
+		}		
     }
     return self;
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - View Methods
+
+- (void)viewDidLoad
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [super viewDidLoad];
+	_labels = [NSMutableArray array];
+	
+	UISwipeGestureRecognizer *rightSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipeRight:)];
+	rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
+	[rightSwipeRecognizer setNumberOfTouchesRequired:1];
+	[self.view addGestureRecognizer:rightSwipeRecognizer];
+	
+	UISwipeGestureRecognizer *leftSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(didSwipeLeft:)];
+	leftSwipeRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+	[leftSwipeRecognizer setNumberOfTouchesRequired:1];
+	[self.view addGestureRecognizer:leftSwipeRecognizer];
 }
+
+-(void) viewWillAppear:(BOOL)animated {
+	[super viewWillAppear:animated];
+	
+	_categorySelected = nil;
+	self.valueField.text = nil;
+	[self.valueField becomeFirstResponder];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+	_isMenuVisible = @NO;
+	self.menuView.layer.borderColor = [UIColor blackColor].CGColor;
+	self.menuView.layer.borderWidth = 2.0;
+	[self refreshCategoryLabels];
+	[self refreshCategoryLayout];
+	
+}
+
+#pragma mark - Storyboard Segue Methods
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 	if ([segue.identifier isEqualToString:@"MainViewToNewExpenseView"]){
@@ -63,24 +92,20 @@
 	}
 }
 
-#pragma mark - View Lifecycle
+#pragma mark - Fun With Labels
 
--(void) addLabelForCategory: (Category *)category {
+-(void) addLabelForString: (NSString *)string {
 	MHLabel *label = [[MHLabel alloc] initWithFrame:CGRectZero];
+	label.text = string;
 	
-	label.text = category.name;
-	
-	[label sizeToFit];
-	[label setFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width + 10.0, label.frame.size.height)];
-	[label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(categoryLabelTapped:)]];
-	
+	[label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)]];
 	[_labels addObject:label];
 	[self.scrollView addSubview:label];
 }
 
 -(void)refreshCategoryLabels {
 	for (int i = _labels.count -1; i >= 0; --i){
-		UILabel *label = [_labels objectAtIndex:i];
+		MHLabel *label = [_labels objectAtIndex:i];
 		[label removeFromSuperview];
 		[_labels removeObjectAtIndex:i];
 	}
@@ -88,32 +113,13 @@
 	NSArray *categories = [[ExpenseStore sharedStore] allCategories];
 	for (int i = 0; i < categories.count; i++){
 		Category *category = [categories objectAtIndex:i];
-		[self addLabelForCategory:category];
+		[self addLabelForString:category.name];
 	}
-	
 }
 
 -(void) refreshCategoryLayout {
-
 	[MHLabel adjustLabelFrames:_labels forScrollView:self.scrollView];
 }
-
--(void) viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-
-	_categorySelected = nil;
-	self.valueField.text = nil;
-	[self.valueField becomeFirstResponder];
-}
-
--(void) viewDidAppear:(BOOL)animated {
-	[super viewDidAppear:animated];
-	_isMenuVisible = @NO;
-	[self refreshCategoryLabels];
-	[self refreshCategoryLayout];
-	
-}
-
 
 -(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	[UIView animateWithDuration:0.25 animations:^{
@@ -121,30 +127,48 @@
 	}];
 }
 
--(void) categoryLabelTapped: (UITapGestureRecognizer *)recognizer {
-	UILabel *label = (UILabel *) recognizer.view;
+-(void) labelTapped: (UITapGestureRecognizer *)recognizer {
+	MHLabel *label = (MHLabel *) recognizer.view;
 	_categorySelected = [[[ExpenseStore sharedStore] allCategories] objectAtIndex:[_labels indexOfObject:label]];
 	[self performSegueWithIdentifier:@"MainViewToNewExpenseView" sender:self];
-	
 }
+
+#pragma mark - MenuView Operations
+
+-(IBAction)didSwipeLeft:(id)sender {
+	[self hideMenu];
+}
+
+-(IBAction)didSwipeRight:(id)sender {
+	[self showMenu];
+}
+
 - (IBAction)menuButtonPressed:(id)sender {
-	if (!_isMenuVisible.boolValue){
-		
-		self.menuView.frame = CGRectMake(0, 0, self.menuView.frame.size.width, self.menuView.frame.size.height);
-		_isMenuVisible = @YES;
-		
+	if (_isMenuVisible.boolValue){
+		[self hideMenu];
 	} else {
-		self.menuView.frame = CGRectMake(-160, 0, self.menuView.frame.size.width, self.menuView.frame.size.height);
-		_isMenuVisible = @NO;
+		[self showMenu];
+	}
+}
+-(void) showMenu {
+	if (!_isMenuVisible.boolValue){
+		_isMenuVisible = @YES;
+		[UIView animateWithDuration:0.25 animations:^{
+			self.menuView.frame = CGRectMake(-2, -2, self.menuView.frame.size.width, self.menuView.frame.size.height);
+		}];
 	}
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	_labels = [NSMutableArray array];
-	
+-(void) hideMenu {
+	if (_isMenuVisible.boolValue){
+		_isMenuVisible = @NO;
+		[UIView animateWithDuration:0.25 animations:^{
+			self.menuView.frame = CGRectMake(-142, -2, self.menuView.frame.size.width, self.menuView.frame.size.height);
+		}];
+	}
 }
+
+#pragma mark - Storyboard Unwind Segues
 
 -(IBAction)unwindSegueToMainView:(UIStoryboardSegue *)segue {
 

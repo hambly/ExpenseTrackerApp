@@ -14,7 +14,9 @@
 @interface Calculate : NSObject
 
 +(NSArray *) listOfExpenseNamesSimilarTo: (Expense *)expense;
-
++(NSDictionary *) listOfMonthsWithExpenses;
++(NSArray *) listOfCostRanges;
++(NSArray *) temporaryCostRanges;
 
 
 @end

@@ -78,10 +78,11 @@
 {
 	NSError *error = nil;
 	BOOL success = [context save:&error];
-	if (!success)
+	if (!success){
 		NSLog(@"Error saving: %@", [error localizedDescription]);
-	else
-		NSLog(@"Save complete!");
+	} else {
+//		NSLog(@"Save complete!");
+	}
 }
 
 -(Expense *) createExpense
@@ -108,7 +109,7 @@
 {
 	[context deleteObject:expense];
 	[allExpenses removeObjectIdenticalTo:expense];
-	NSLog(@"%@ expense deleted",expense.name);
+//	NSLog(@"%@ expense deleted",expense.name);
 }
 
 -(NSArray *) allExpenses
@@ -188,7 +189,7 @@
 {
 	[context deleteObject:category];
 	[allCategories removeObjectIdenticalTo:category];
-	NSLog(@"%@ category deleted",category.name);
+//	NSLog(@"%@ category deleted",category.name);
 }
 
 -(NSArray *) allCategories

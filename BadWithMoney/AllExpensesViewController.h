@@ -10,4 +10,6 @@
 
 @interface AllExpensesViewController : UITableViewController
 
+@property (strong) NSArray* filteredExpenses;
+
 @end

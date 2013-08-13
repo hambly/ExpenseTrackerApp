@@ -12,4 +12,7 @@
 
 +(void) adjustLabelFrames: (NSMutableArray*) labelsArray forScrollView: (UIScrollView *) scrollView;
 
+-(void)selectLabel;
+-(void)makeTitleLabel;
+
 @end

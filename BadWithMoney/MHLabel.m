@@ -11,8 +11,37 @@
 
 #define MARGIN 8
 #define FAVORITEFONTSIZE 22
+#define PADDING 10
+
+@interface MHLabel()
+
+@property (nonatomic, strong) NSNumber *isSelected;
+@property (nonatomic, strong) NSNumber *isTitleLabel;
+
+@end
 
 @implementation MHLabel
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+		self.isSelected = @NO;
+		self.isTitleLabel = @NO;
+		
+		self.font = [UIFont fontWithName:@"Avenir Next" size:FAVORITEFONTSIZE];
+		self.textColor = [UIColor blackColor];
+		self.layer.borderWidth = 2.0;
+		self.layer.borderColor = [UIColor blackColor].CGColor;
+		self.layer.shadowColor = [UIColor grayColor].CGColor;
+		self.layer.shadowOffset = CGSizeMake(10, 10);
+		self.userInteractionEnabled = YES;
+		self.textAlignment = NSTextAlignmentCenter;
+		
+    }
+    return self;
+}
 
 +(void) adjustLabelFrames: (NSMutableArray*) labelsArray forScrollView: (UIScrollView *) scrollView {
 	
@@ -39,31 +68,24 @@
 	scrollView.contentSize = CGSizeMake(scrollView.bounds.size.width, maxY + MARGIN);
 }
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-		self.font = [UIFont fontWithName:@"Avenir Next" size:22];
-		self.textColor = [UIColor blackColor];
-		self.layer.borderWidth = 2.0;
-		self.layer.borderColor = [UIColor blackColor].CGColor;
-		self.layer.shadowColor = [UIColor grayColor].CGColor;
-		self.layer.shadowOffset = CGSizeMake(10, 10);
-		self.userInteractionEnabled = YES;
-		self.textAlignment = NSTextAlignmentCenter;
-		
-    }
-    return self;
+-(void) setText:(NSString *)text{
+	[super setText:text];
+	[self sizeToFit];
+	[self setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width + PADDING, self.frame.size.height)];
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
+-(void) selectLabel{
+	self.isSelected = @YES;
+	self.backgroundColor = [UIColor lightGrayColor];
+
 }
-*/
+
+-(void) makeTitleLabel {
+	self.isTitleLabel = @YES;
+	self.backgroundColor = [UIColor clearColor];
+	self.layer.borderWidth = 0.0;
+	self.userInteractionEnabled = NO;
+}
+
 
 @end

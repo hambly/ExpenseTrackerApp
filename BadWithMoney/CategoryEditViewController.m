@@ -16,9 +16,8 @@
 @interface CategoryEditViewController () <UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *deleteCategoryButton;
-
-
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @end
 
@@ -31,7 +30,9 @@
 {
     [super viewDidLoad];
 	_labels = [NSMutableArray array];
-	[self.deleteCategoryButton setEnabled:NO];
+	
+	[self.deleteButton setEnabled:NO];
+	self.deleteButton.titleLabel.textColor = [UIColor lightGrayColor];
 	
 }
 
@@ -40,7 +41,6 @@
 	[self.nameField becomeFirstResponder];
 	[self refreshLabels];
 	[self refreshLayout];
-	
 }
 
 #pragma mark - Fun With labels
@@ -50,12 +50,10 @@
 	
 	label.text = [NSString stringWithFormat:@"%@ (%i)",category.name, category.expenseSet.count];
 	
-	[label sizeToFit];
-	[label setFrame:CGRectMake(label.frame.origin.x, label.frame.origin.y, label.frame.size.width + 10.0, label.frame.size.height)];
 	[label addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)]];
 	
 	if (category == _categorySelected) {
-		label.backgroundColor = [UIColor lightGrayColor];
+		[label selectLabel];
 	}
 	[_labels addObject:label];
 	[self.scrollView addSubview:label];
@@ -73,15 +71,11 @@
 		Category *category = [categories objectAtIndex:i];
 		[self addLabelForCategory:category];
 	}
-	
 }
 
 -(void) refreshLayout {
 	[MHLabel adjustLabelFrames:_labels forScrollView:self.scrollView];
-	
 }
-
-
 
 -(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
 	[UIView animateWithDuration:0.25 animations:^{
@@ -95,47 +89,54 @@
 	Category *category = [[[ExpenseStore sharedStore] allCategories] objectAtIndex:[_labels indexOfObject:label]];
 	_categorySelected = category;
 	self.nameField.text = _categorySelected.name;
-	[self.deleteCategoryButton setEnabled:YES];
+	
+	[self.deleteButton setEnabled:YES];
+	self.deleteButton.titleLabel.textColor = [UIColor blackColor];
 	
 	[self refreshLabels];
 	[self refreshLayout];
 }
 
+#pragma mark - Button actions & delete
+
 - (IBAction)deleteCategoryButtonPressed:(id)sender {
-	if (_categorySelected.expenseSet.count == 0){
-		[[ExpenseStore sharedStore] removeCategory:_categorySelected];
-		_categorySelected = nil;
-		self.nameField.text = nil;
-		[self refreshLabels];
-		[self refreshLayout];
-	} else if ([_categorySelected.name isEqualToString:@"Uncategorized"]){
-		NSString *alertString = [NSString stringWithFormat:@"There are %i uncategorized orphans. There is nowhere else for them to go!", _categorySelected.expenseSet.count];
-		[[[UIAlertView alloc] initWithTitle:nil
-									message:alertString
-								   delegate:self
-						  cancelButtonTitle:@"Save the orphans"
-						  otherButtonTitles:nil] show];
-	} else {
-		NSString *alertString = [NSString stringWithFormat:@"Deleting this category will result in %i little expense orphans. Orphans will be marked as Uncatagorized! Poor little things.", _categorySelected.expenseSet.count];
-		[[[UIAlertView alloc] initWithTitle:nil
-									message:alertString
-								   delegate:self
-						  cancelButtonTitle:@"Save the orphans"
-						  otherButtonTitles:@"Show no mercy", nil] show];
+	if (_categorySelected){
+		if (_categorySelected.expenseSet.count == 0){
+			[[ExpenseStore sharedStore] removeCategory:_categorySelected];
+			_categorySelected = nil;
+			self.nameField.text = nil;
+			[self refreshLabels];
+			[self refreshLayout];
+		} else if ([_categorySelected.name isEqualToString:@"Uncategorized"]){
+			NSString *alertString = [NSString stringWithFormat:@"There are %i uncategorized orphans. There is nowhere else for them to go!", _categorySelected.expenseSet.count];
+			[[[UIAlertView alloc] initWithTitle:nil
+										message:alertString
+									   delegate:self
+							  cancelButtonTitle:@"Save the orphans"
+							  otherButtonTitles:nil] show];
+		} else {
+			NSString *alertString = [NSString stringWithFormat:@"Deleting this category will result in %i little expense orphans. Orphans will be marked as Uncatagorized! Poor little things.", _categorySelected.expenseSet.count];
+			[[[UIAlertView alloc] initWithTitle:nil
+										message:alertString
+									   delegate:self
+							  cancelButtonTitle:@"Save the orphans"
+							  otherButtonTitles:@"Show no mercy", nil] show];
+		}
+
 	}
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex == 1){
-		bool success = NO;
+		bool doesUncategorizedExist = NO;
 		Category *uncategorized;
 		for (Category *cat in [[ExpenseStore sharedStore] allCategories]){
 			if ([cat.name isEqualToString:@"Uncategorized"]){
-				success = YES;
+				doesUncategorizedExist = YES;
 				uncategorized = cat;
 			}
 		}
-		if (!success){
+		if (!doesUncategorizedExist){
 			uncategorized = [[ExpenseStore sharedStore] createCategory];
 			uncategorized.name = @"Uncategorized";
 		}
@@ -143,6 +144,9 @@
 		for (Expense *exp in allExpensesFromCategory){
 			exp.category = uncategorized;
 		}
+		
+		[self.deleteButton setEnabled:NO];
+		self.deleteButton.titleLabel.textColor = [UIColor lightGrayColor];
 		
 		[[ExpenseStore sharedStore] removeCategory:_categorySelected];
 		[self refreshLabels];

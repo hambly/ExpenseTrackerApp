@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1C6E0B17B8A4AF00203399 /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1C6E0A17B8A4AF00203399 /* SortViewController.m */; };
+		4D1C6E0E17B8BE6D00203399 /* threequal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D1C6E0C17B8BE6D00203399 /* threequal.png */; };
+		4D1C6E0F17B8BE6D00203399 /* threequal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D1C6E0D17B8BE6D00203399 /* threequal@2x.png */; };
 		4D1FE04117B1BE6F00A8645C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D1FE04017B1BE6F00A8645C /* CoreData.framework */; };
 		4D31AE0A17B31AA7000B5C8F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE0917B31AA7000B5C8F /* MainViewController.m */; };
 		4D31AE0C17B34553000B5C8F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D31AE0B17B34553000B5C8F /* QuartzCore.framework */; };
@@ -38,6 +41,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D1C6E0917B8A4AF00203399 /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
+		4D1C6E0A17B8A4AF00203399 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
+		4D1C6E0C17B8BE6D00203399 /* threequal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = threequal.png; sourceTree = "<group>"; };
+		4D1C6E0D17B8BE6D00203399 /* threequal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "threequal@2x.png"; sourceTree = "<group>"; };
 		4D1FE04017B1BE6F00A8645C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4D31AE0817B31AA7000B5C8F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		4D31AE0917B31AA7000B5C8F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
@@ -169,6 +176,8 @@
 				4D31AE3817B4AE78000B5C8F /* ExpenseTableViewCell.m */,
 				4D54E1F417B8610F004A17D8 /* CategoryEditViewController.h */,
 				4D54E1F517B8610F004A17D8 /* CategoryEditViewController.m */,
+				4D1C6E0917B8A4AF00203399 /* SortViewController.h */,
+				4D1C6E0A17B8A4AF00203399 /* SortViewController.m */,
 				4D31AE3A17B4B76A000B5C8F /* HelperClasses */,
 				4D31AE1317B35E19000B5C8F /* Model */,
 				4D6A51E717AB2E5A00AF9CC5 /* Supporting Files */,
@@ -179,6 +188,8 @@
 		4D6A51E717AB2E5A00AF9CC5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D1C6E0C17B8BE6D00203399 /* threequal.png */,
+				4D1C6E0D17B8BE6D00203399 /* threequal@2x.png */,
 				4D6A51EF17AB2E5A00AF9CC5 /* AppDelegate.h */,
 				4D6A51F017AB2E5A00AF9CC5 /* AppDelegate.m */,
 				4D31AE2F17B49433000B5C8F /* Icon-72@2x.png */,
@@ -256,6 +267,8 @@
 				4D31AE2C17B4941A000B5C8F /* Icon@2x.png in Resources */,
 				4D31AE2E17B49429000B5C8F /* Icon-72.png in Resources */,
 				4D31AE3017B49433000B5C8F /* Icon-72@2x.png in Resources */,
+				4D1C6E0E17B8BE6D00203399 /* threequal.png in Resources */,
+				4D1C6E0F17B8BE6D00203399 /* threequal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +293,7 @@
 				4D31AE3617B497F1000B5C8F /* Calculate.m in Sources */,
 				4D31AE3917B4AE78000B5C8F /* ExpenseTableViewCell.m in Sources */,
 				4D54E1F617B8610F004A17D8 /* CategoryEditViewController.m in Sources */,
+				4D1C6E0B17B8A4AF00203399 /* SortViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
