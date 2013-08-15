@@ -10,11 +10,16 @@
 #import "Expense.h"
 #import "Category.h"
 
+@interface ExpenseStore ()
+
+@property (nonatomic, strong) NSManagedObjectContext *context;
+@property (nonatomic, strong) NSManagedObjectModel *model;
+
+@end
+
 @implementation ExpenseStore {
-	NSMutableArray *allExpenses;
-	NSManagedObjectContext *context;
-	NSManagedObjectModel *model;
-	NSMutableArray *allCategories;
+	NSMutableArray *_allExpenses;
+	NSMutableArray *_allCategories;
 }
 
 +(ExpenseStore *) sharedStore
@@ -25,9 +30,7 @@
 	{
 		sharedStore = [[super allocWithZone:nil] init];
 	}
-	
 	return sharedStore;
-	
 }
 
 +(id) allocWithZone:(NSZone *)zone
@@ -42,8 +45,8 @@
 	if (self)
 	{
 		
-		model = [NSManagedObjectModel mergedModelFromBundles:nil];
-		NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+		_model = [NSManagedObjectModel mergedModelFromBundles:nil];
+		NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:_model];
 		
 		NSError *error = nil;
 		NSString *storePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -62,9 +65,9 @@
 			[NSException raise:@"Open failed" format:@"Reason: %@", [error localizedDescription]];
 		}
 		
-		context = [[NSManagedObjectContext alloc] init];
-		[context setPersistentStoreCoordinator:persistentStoreCoordinator];
-		[context setUndoManager:nil];
+		_context = [[NSManagedObjectContext alloc] init];
+		[_context setPersistentStoreCoordinator:persistentStoreCoordinator];
+		[_context setUndoManager:nil];
 		
 		[self loadAllExpenses];
 		[self loadAllCategories];
@@ -77,7 +80,7 @@
 -(void)saveChanges
 {
 	NSError *error = nil;
-	BOOL success = [context save:&error];
+	BOOL success = [self.context save:&error];
 	if (!success){
 		NSLog(@"Error saving: %@", [error localizedDescription]);
 	} else {
@@ -88,54 +91,54 @@
 -(Expense *) createExpense
 {
 	double order = 0.0;
-	if (allExpenses.count == 0)
+	if (_allExpenses.count == 0)
 	{
 		order = 1.0;
 	} else {
-		order = [[[allExpenses lastObject] orderingValue] doubleValue] +1.0;
+		order = [[[_allExpenses lastObject] orderingValue] doubleValue] +1.0;
 	}
 	
 	Expense *expense= [NSEntityDescription insertNewObjectForEntityForName:@"Expense"
-											  inManagedObjectContext:context];
+											  inManagedObjectContext:self.context];
 	expense.orderingValue = [NSNumber numberWithDouble:order];
 	expense.date = [NSDate date];
 	
-	[allExpenses addObject:expense];
+	[_allExpenses addObject:expense];
 
 	return expense;
 }
 
 -(void) removeExpense:(Expense *)expense
 {
-	[context deleteObject:expense];
-	[allExpenses removeObjectIdenticalTo:expense];
+	[self.context deleteObject:expense];
+	[_allExpenses removeObjectIdenticalTo:expense];
 //	NSLog(@"%@ expense deleted",expense.name);
 }
 
 -(NSArray *) allExpenses
 {
-	return allExpenses;
+	return _allExpenses;
 }
 
 -(void) loadAllExpenses
 {
-	if (!allExpenses)
+	if (!_allExpenses)
 	{
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
-		NSEntityDescription *entityDescription = [[model entitiesByName] objectForKey:@"Expense"];
+		NSEntityDescription *entityDescription = [[self.model entitiesByName] objectForKey:@"Expense"];
 		[request setEntity:entityDescription];
 		NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
 		[request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 		
 		NSError *error;
-		NSArray *result = [context executeFetchRequest:request
+		NSArray *result = [self.context executeFetchRequest:request
 												 error:&error];
 		if (!result)
 		{
 			[NSException raise:@"Fetch failed" format:@"Reason: %@", error.localizedDescription];
 		}
 		
-		allExpenses = [[NSMutableArray alloc] initWithArray:result];
+		_allExpenses = [[NSMutableArray alloc] initWithArray:result];
 	}
 }
 
@@ -145,14 +148,14 @@
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"category == %@",category];
 	[request setPredicate:predicate];
 	
-	NSEntityDescription *entityDescription = [[model entitiesByName] objectForKey:@"Expense"];
+	NSEntityDescription *entityDescription = [[self.model entitiesByName] objectForKey:@"Expense"];
 	[request setEntity:entityDescription];
 	
 	NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
 	[request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 	
 	NSError *error;
-	NSArray *result = [context executeFetchRequest:request
+	NSArray *result = [self.context executeFetchRequest:request
 											 error:&error];
 	if (!result)
 	{
@@ -169,53 +172,53 @@
 -(Category *) createCategory
 {
 	double order = 0.0;
-	if (allCategories.count == 0)
+	if (_allCategories.count == 0)
 	{
 		order = 1.0;
 	} else {
-		order = [[[allCategories lastObject] orderingValue] doubleValue] +1.0;
+		order = [[[_allCategories lastObject] orderingValue] doubleValue] +1.0;
 	}
 	
 	Category *category= [NSEntityDescription insertNewObjectForEntityForName:@"Category"
-													inManagedObjectContext:context];
+													inManagedObjectContext:self.context];
 	category.orderingValue = [NSNumber numberWithDouble:order];
 	
-	[allCategories addObject:category];
+	[_allCategories addObject:category];
 	
 	return category;
 }
 
 -(void) removeCategory:(Category *)category
 {
-	[context deleteObject:category];
-	[allCategories removeObjectIdenticalTo:category];
+	[self.context deleteObject:category];
+	[_allCategories removeObjectIdenticalTo:category];
 //	NSLog(@"%@ category deleted",category.name);
 }
 
 -(NSArray *) allCategories
 {
-	return allCategories;
+	return _allCategories;
 }
 
 -(void) loadAllCategories
 {
-	if (!allCategories)
+	if (!_allCategories)
 	{
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
-		NSEntityDescription *entityDescription = [[model entitiesByName] objectForKey:@"Category"];
+		NSEntityDescription *entityDescription = [[self.model entitiesByName] objectForKey:@"Category"];
 		[request setEntity:entityDescription];
 		NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"orderingValue" ascending:YES];
 		[request setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 		
 		NSError *error;
-		NSArray *result = [context executeFetchRequest:request
+		NSArray *result = [self.context executeFetchRequest:request
 												 error:&error];
 		if (!result)
 		{
 			[NSException raise:@"Fetch failed" format:@"Reason: %@", error.localizedDescription];
 		}
 		
-		allCategories = [[NSMutableArray alloc] initWithArray:result];
+		_allCategories = [[NSMutableArray alloc] initWithArray:result];
 	}
 }
 
@@ -224,24 +227,24 @@
 	if (fromIndex == toIndex)
 		return;
 	
-	Category *category = [allCategories objectAtIndex:fromIndex];
-	[allCategories removeObjectAtIndex:fromIndex];
-	[allCategories insertObject:category atIndex:toIndex];
+	Category *category = [_allCategories objectAtIndex:fromIndex];
+	[_allCategories removeObjectAtIndex:fromIndex];
+	[_allCategories insertObject:category atIndex:toIndex];
 	
 	// Recalculate ordering value
 	
 	double lowerBound = 0.0;
 	if (toIndex > 0){
-		lowerBound = [[[allCategories objectAtIndex: toIndex - 1] orderingValue] doubleValue];
+		lowerBound = [[[_allCategories objectAtIndex: toIndex - 1] orderingValue] doubleValue];
 	} else {
-		lowerBound = [[[allCategories objectAtIndex: 1] orderingValue] doubleValue] - 2.0;
+		lowerBound = [[[_allCategories objectAtIndex: 1] orderingValue] doubleValue] - 2.0;
 	}
 	
 	double upperBound = 0.0;
-	if (toIndex < allCategories.count - 1 ){
-		upperBound = [[[allCategories objectAtIndex:toIndex +1] orderingValue] doubleValue];
+	if (toIndex < _allCategories.count - 1 ){
+		upperBound = [[[_allCategories objectAtIndex:toIndex +1] orderingValue] doubleValue];
 	} else {
-		upperBound = [[[allCategories objectAtIndex:toIndex -1] orderingValue] doubleValue] +2.0;
+		upperBound = [[[_allCategories objectAtIndex:toIndex -1] orderingValue] doubleValue] +2.0;
 	}
 	
 	double newOrderValue = (lowerBound + upperBound) / 2.0;

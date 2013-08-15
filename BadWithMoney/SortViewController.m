@@ -150,7 +150,6 @@
 		} else {
 			predicate = [NSPredicate predicateWithFormat:@"(value >= %@) AND (value < %@)",costRanges[index],costRanges[index+1]];
 		}
-		
 	}
 	
 	NSArray *allExpenses = [[ExpenseStore sharedStore] allExpenses];
