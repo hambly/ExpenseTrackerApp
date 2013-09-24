@@ -18,7 +18,10 @@
 @interface MainViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
+
 @property (weak, nonatomic) IBOutlet UIView *menuView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *menuVisibleConstraint;
+@property (strong, nonatomic) NSLayoutConstraint *menuHiddenConstraint;
 
 @end
 
@@ -58,14 +61,41 @@
 	leftSwipeRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
 	[leftSwipeRecognizer setNumberOfTouchesRequired:1];
 	[self.view addGestureRecognizer:leftSwipeRecognizer];
+	
+	self.menuView.translatesAutoresizingMaskIntoConstraints = NO;
+	[self.view removeConstraint:self.menuVisibleConstraint];
+	self.menuHiddenConstraint = [NSLayoutConstraint
+								 constraintWithItem:self.menuView
+								 attribute:NSLayoutAttributeTrailing
+								 relatedBy:NSLayoutRelationEqual
+								 toItem:self.view
+								 attribute:NSLayoutAttributeLeading
+								 multiplier:1.0f
+								 constant:0.0f];
+	[self.view addConstraint:self.menuHiddenConstraint];
+	
+	
+	
+	if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
+		self.automaticallyAdjustsScrollViewInsets = NO;
+	}
+	
+	[self hideMenu];
+	
 }
 
 -(void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	
+	[self hideMenu];
 	_categorySelected = nil;
 	self.valueField.text = nil;
 	[self.valueField becomeFirstResponder];
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+	[super viewWillDisappear:animated];
+	[self hideMenu];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -153,8 +183,15 @@
 -(void) showMenu {
 	if (!_isMenuVisible.boolValue){
 		_isMenuVisible = @YES;
+		
+		self.menuView.translatesAutoresizingMaskIntoConstraints = NO;
+		[self.view removeConstraint:self.menuHiddenConstraint];
+		[self.view addConstraint:self.menuVisibleConstraint];
+		[self.view setNeedsUpdateConstraints];
+		
 		[UIView animateWithDuration:0.25 animations:^{
-			self.menuView.frame = CGRectMake(-2, -2, self.menuView.frame.size.width, self.menuView.frame.size.height);
+//			self.menuView.frame = CGRectMake(-2, -2, self.menuView.frame.size.width, self.menuView.frame.size.height);
+			[self.view layoutIfNeeded];
 		}];
 	}
 }
@@ -162,8 +199,15 @@
 -(void) hideMenu {
 	if (_isMenuVisible.boolValue){
 		_isMenuVisible = @NO;
+		
+		self.menuView.translatesAutoresizingMaskIntoConstraints = NO;
+		[self.view removeConstraint:self.menuVisibleConstraint];
+		[self.view addConstraint:self.menuHiddenConstraint];
+		[self.view setNeedsUpdateConstraints];
+		
 		[UIView animateWithDuration:0.25 animations:^{
-			self.menuView.frame = CGRectMake(-142, -2, self.menuView.frame.size.width, self.menuView.frame.size.height);
+			[self.view layoutIfNeeded];
+//			self.menuView.frame = CGRectMake(-142, -2, self.menuView.frame.size.width, self.menuView.frame.size.height);
 		}];
 	}
 }
@@ -175,7 +219,7 @@
 }
 
 -(IBAction)unwindSegueFromCategoryEditViewToMainView:(UIStoryboardSegue *) segue {
-	
+
 }
 
 @end

@@ -40,6 +40,10 @@
 	rightSwipeRecognizer.direction = UISwipeGestureRecognizerDirectionRight;
 	[rightSwipeRecognizer setNumberOfTouchesRequired:1];
 	[self.view addGestureRecognizer:rightSwipeRecognizer];
+	
+	if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
+		self.automaticallyAdjustsScrollViewInsets = NO;
+	}
 }
 
 -(void) viewWillAppear:(BOOL)animated {

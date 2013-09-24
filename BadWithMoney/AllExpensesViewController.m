@@ -57,6 +57,14 @@
 	}
 }
 
+-(void) viewDidLoad {
+	[super viewDidLoad];
+	
+	if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
+		self.automaticallyAdjustsScrollViewInsets = NO;
+	}
+}
+
 -(void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
 	[self refreshExpenses];

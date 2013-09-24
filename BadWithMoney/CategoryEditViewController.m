@@ -34,6 +34,11 @@
 	[self.deleteButton setEnabled:NO];
 	self.deleteButton.titleLabel.textColor = [UIColor lightGrayColor];
 	
+	if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
+		self.automaticallyAdjustsScrollViewInsets = NO;
+	}
+	
+	
 }
 
 -(void) viewDidAppear:(BOOL)animated {

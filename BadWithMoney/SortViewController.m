@@ -35,6 +35,12 @@
     [super viewDidLoad];
 	_labels = [NSMutableArray array];
 	[self.filterSegmentedControl setSelectedSegmentIndex:0];
+		
+	if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]){
+		self.automaticallyAdjustsScrollViewInsets = NO;
+	}
+
+	
 }
 
 -(void) viewDidAppear:(BOOL)animated {
