@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QTk-Vz-t7Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="QTk-Vz-t7Y">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -304,17 +304,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Apq-bx-o6L">
-                                <rect key="frame" x="0.0" y="168" width="320" height="312"/>
+                                <rect key="frame" x="0.0" y="127" width="320" height="353"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="Gmq-ar-ONf" kind="embed" identifier="SortViewEmbedExpenseTableView" id="E8c-nl-3kR"/>
                                 </connections>
                             </containerView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5T2-EE-sck">
-                                <rect key="frame" x="0.0" y="47" width="320" height="121"/>
+                                <rect key="frame" x="0.0" y="47" width="320" height="80"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="120" id="Iz6-cG-Jwb"/>
+                                    <constraint firstAttribute="height" priority="999" constant="80" id="Iz6-cG-Jwb"/>
                                 </constraints>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CDf-fe-YOi">
@@ -360,7 +360,6 @@
                             <constraint firstAttribute="centerX" secondItem="5T2-EE-sck" secondAttribute="centerX" id="EmL-Ur-YmX"/>
                             <constraint firstItem="Mmr-oQ-w7M" firstAttribute="leading" secondItem="7VZ-Te-VHJ" secondAttribute="leading" id="EtC-SR-cjL"/>
                             <constraint firstItem="Apq-bx-o6L" firstAttribute="trailing" secondItem="7VZ-Te-VHJ" secondAttribute="trailing" id="IK8-G7-seK"/>
-                            <constraint firstItem="Apq-bx-o6L" firstAttribute="top" secondItem="M2G-lD-aAa" secondAttribute="bottom" constant="148" id="LMP-zc-zf1"/>
                             <constraint firstItem="Mmr-oQ-w7M" firstAttribute="bottom" secondItem="CDf-fe-YOi" secondAttribute="bottom" constant="1" id="Og1-vd-eGD"/>
                             <constraint firstItem="CDf-fe-YOi" firstAttribute="trailing" secondItem="7VZ-Te-VHJ" secondAttribute="trailing" constant="-2" id="RTW-vr-p1P"/>
                             <constraint firstItem="5T2-EE-sck" firstAttribute="leading" secondItem="7VZ-Te-VHJ" secondAttribute="leading" id="VNa-un-CSV"/>
@@ -388,7 +387,7 @@
             <objects>
                 <tableViewController id="Gmq-ar-ONf" customClass="AllExpensesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="CwH-ah-nHR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="312"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="353"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

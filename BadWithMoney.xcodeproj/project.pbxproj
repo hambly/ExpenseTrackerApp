@@ -22,6 +22,10 @@
 		4D31AE3017B49433000B5C8F /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D31AE2F17B49433000B5C8F /* Icon-72@2x.png */; };
 		4D31AE3617B497F1000B5C8F /* Calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE3517B497F1000B5C8F /* Calculate.m */; };
 		4D31AE3917B4AE78000B5C8F /* ExpenseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D31AE3817B4AE78000B5C8F /* ExpenseTableViewCell.m */; };
+		4D4004EF180CB10E007356E3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4D4004EB180CB10E007356E3 /* README.md */; };
+		4D4004F0180CB10E007356E3 /* Screenshot01.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4004EC180CB10E007356E3 /* Screenshot01.png */; };
+		4D4004F1180CB10E007356E3 /* Screenshot02.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4004ED180CB10E007356E3 /* Screenshot02.png */; };
+		4D4004F2180CB10E007356E3 /* Screenshot03.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D4004EE180CB10E007356E3 /* Screenshot03.png */; };
 		4D54E1F617B8610F004A17D8 /* CategoryEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D54E1F517B8610F004A17D8 /* CategoryEditViewController.m */; };
 		4D6A51E117AB2E5A00AF9CC5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6A51E017AB2E5A00AF9CC5 /* UIKit.framework */; };
 		4D6A51E317AB2E5A00AF9CC5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D6A51E217AB2E5A00AF9CC5 /* Foundation.framework */; };
@@ -63,6 +67,10 @@
 		4D31AE3517B497F1000B5C8F /* Calculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculate.m; sourceTree = "<group>"; };
 		4D31AE3717B4AE77000B5C8F /* ExpenseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpenseTableViewCell.h; sourceTree = "<group>"; };
 		4D31AE3817B4AE78000B5C8F /* ExpenseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpenseTableViewCell.m; sourceTree = "<group>"; };
+		4D4004EB180CB10E007356E3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		4D4004EC180CB10E007356E3 /* Screenshot01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot01.png; sourceTree = "<group>"; };
+		4D4004ED180CB10E007356E3 /* Screenshot02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot02.png; sourceTree = "<group>"; };
+		4D4004EE180CB10E007356E3 /* Screenshot03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Screenshot03.png; sourceTree = "<group>"; };
 		4D54E1F417B8610F004A17D8 /* CategoryEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryEditViewController.h; sourceTree = "<group>"; };
 		4D54E1F517B8610F004A17D8 /* CategoryEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryEditViewController.m; sourceTree = "<group>"; };
 		4D6A51DD17AB2E5A00AF9CC5 /* Spreadsheet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spreadsheet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,6 +147,10 @@
 				4D6A51E617AB2E5A00AF9CC5 /* BadWithMoney */,
 				4D6A51DF17AB2E5A00AF9CC5 /* Frameworks */,
 				4D6A51DE17AB2E5A00AF9CC5 /* Products */,
+				4D4004EB180CB10E007356E3 /* README.md */,
+				4D4004EC180CB10E007356E3 /* Screenshot01.png */,
+				4D4004ED180CB10E007356E3 /* Screenshot02.png */,
+				4D4004EE180CB10E007356E3 /* Screenshot03.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,9 +276,13 @@
 				4D6A51F717AB2E5A00AF9CC5 /* Default-568h@2x.png in Resources */,
 				4D6A51FA17AB2E5A00AF9CC5 /* MainStoryboard.storyboard in Resources */,
 				4D31AE2A17B49415000B5C8F /* Icon.png in Resources */,
+				4D4004EF180CB10E007356E3 /* README.md in Resources */,
+				4D4004F0180CB10E007356E3 /* Screenshot01.png in Resources */,
+				4D4004F2180CB10E007356E3 /* Screenshot03.png in Resources */,
 				4D31AE2C17B4941A000B5C8F /* Icon@2x.png in Resources */,
 				4D31AE2E17B49429000B5C8F /* Icon-72.png in Resources */,
 				4D31AE3017B49433000B5C8F /* Icon-72@2x.png in Resources */,
+				4D4004F1180CB10E007356E3 /* Screenshot02.png in Resources */,
 				4D1C6E0E17B8BE6D00203399 /* threequal.png in Resources */,
 				4D1C6E0F17B8BE6D00203399 /* threequal@2x.png in Resources */,
 			);
