@@ -6,4 +6,4 @@ Basic expense analysis is currently implemented, to allow viewing expenses by ca
 
 Future developments will include much more in depth analysis, budget calculations, graphs, and integration with a web service.
 
-![ExpenseTrackerApp](Screenshot01.png "ExpenseTracker") ![ExpenseTrackerApp](Screenshot02.png "ExpenseTracker") ![ExpenseTrackerApp](Screenshot03.png "ExpenseTracker")
+![ExpenseTrackerApp](Screenshot01-small.png "ExpenseTracker") ![ExpenseTrackerApp](Screenshot02-small.png "ExpenseTracker") ![ExpenseTrackerApp](Screenshot03-small.png "ExpenseTracker")
